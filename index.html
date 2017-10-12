@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Access-Control-Allow-Methods" content="GET, POST, PATCH, PUT, DELETE, OPTIONS">
+    <meta http-equiv="Access-Control-Allow-Methods" content="Origin, Content-Type, X-Auth-Token">
+
+    <header name = "Access-Control-Allow-Origin" value = "*" />
+    <header name = "Access-Control-Allow-Methods" value = "GET, POST, PATCH, PUT, DELETE, OPTIONS" />
+    <header name = "Access-Control-Allow-Methods" value = "Origin, Content-Type, X-Auth-Token" />
+
+    <link rel="shortcut icon" href="img/favicon.png" >
+
+    <title>My Dream - Smart Room</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+    <script>
+      function MudaDevice() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/celular');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('device')
+        if (element.src.match("device_F")){
+          element.src="img/icons/device_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/device_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaPorta() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_tranca');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('porta')
+        if (element.src.match("porta_F")){
+          element.src="img/icons/porta_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/porta_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaAlarme() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/alarme');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('alarme')
+        if (element.src.match("alarme_F")){
+          element.src="img/icons/alarme_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/alarme_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaVentilador() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_vent');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('ventilador')
+        if (element.src.match("ventilador_F")){
+          element.src="img/icons/ventilador_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/ventilador_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaLuz1() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_lamp1');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('luz1')
+        if (element.src.match("luz1_F")){
+          element.src="img/icons/luz1_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/luz1_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaLuz2() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_lamp2');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('luz2')
+        if (element.src.match("luz2_F")){
+          element.src="img/icons/luz2_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/luz2_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaJanela() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_janela');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('janela')
+        if (element.src.match("janela_F")){
+          element.src="img/icons/janela_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/janela_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+
+      function MudaCortina() {
+        var estado = "";
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'https://mydream-ufpa-phi.herokuapp.com/sensor/e_cortina');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        element=document.getElementById('cortina')
+        if (element.src.match("cortina_F")){
+          element.src="img/icons/cortina_A.png";
+          estado = "ligado"
+        }else{
+          element.src="img/icons/cortina_F.png";
+          estado = "desligado";
+        }
+
+        xhr.send(JSON.stringify({estado: estado}));
+      }
+    </script>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">My Dream</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <img class="img-fluid" src="img/profile.png" alt="">
+        <div class="intro-text">
+          <span class="name">My Dream</span>
+          <hr class="star-light">
+          <span class="skills">By user from user - Control your room in your bed</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="services">
+      <div class="container">
+        <h2 class="text-center">Portfolio</h2>
+        <hr class="star-primary">
+
+        <br>
+
+        <div align="center" class="row">
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link"> 
+             <img class="img-fluid" id="device" onclick="MudaDevice()" height="100%" width="50%" src="img/icons/device_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img class="img-fluid" id="porta" onclick="MudaPorta()" height="100%" width="50%" src="img/icons/porta_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img class="img-fluid" id="alarme" onclick="MudaAlarme()" height="100%" width="50%" src="img/icons/alarme_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img class="img-fluid" id="ventilador" onclick="MudaVentilador()" height="100%" width="50%" src="img/icons/ventilador_F.png">
+            </a>
+          </div>
+        </div>
+
+        <div align="center" class="row">
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img class="img-fluid" id="luz1" onclick="MudaLuz1()" height="100%" width="50%" src="img/icons/luz1_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img class="img-fluid" id="luz2" onclick="MudaLuz2()" height="100%" width="50%" src="img/icons/luz2_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img id="janela" onclick="MudaJanela()" height="100%" width="50%" src="img/icons/janela_F.png">
+            </a>
+          </div>
+          <div class="col-lg-3 portfolio-item">
+            <a class="portfolio-link">
+              <img id="cortina" onclick="MudaCortina()" height="100%" width="50%" src="img/icons/cortina_F.png">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+      <div class="container">
+        <h2 class="text-center">About</h2>
+        <hr class="star-light">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p>Welcome to your smart room. My Dream is a system that leaves your room completely automatic. You will never have a problem in lying down and forgetting the light on.</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p>The system is also ecological and thinks, firstly, how to favor their well-being by natural means. And best of all, he does it all by himself, so you can relax in your bed. If you do not like his service, you can set it up for our site or app.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="text-center">Contact Us</h2>
+        <hr class="star-primary">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            <form name="sentMessage" id="contactForm" novalidate>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Name</label>
+                  <input class="form-control" id="name" type="text" placeholder="Name" required data-validation-required-message="Please enter your name.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Email Address</label>
+                  <input class="form-control" id="email" type="email" placeholder="Email Address" required data-validation-required-message="Please enter your email address.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Phone Number</label>
+                  <input class="form-control" id="phone" type="tel" placeholder="Phone Number" required data-validation-required-message="Please enter your phone number.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label>Message</label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Message" required data-validation-required-message="Please enter a message."></textarea>
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <br>
+              <div id="success"></div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="footer-above">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col col-md-4">
+              <h3>Location</h3>
+              <p>UFPA - Augusto Corrêa 1
+                <br>Belém-PA, 66075-110</p>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>Around the Web</h3>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="#contact">
+                    <i class="fa fa-fw fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="#contact">
+                    <i class="fa fa-fw fa-google-plus"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="#contact">
+                    <i class="fa fa-fw fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="#contact">
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-social btn-outline" href="#contact">
+                    <i class="fa fa-fw fa-dribbble"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-4">
+              <h3>About Smart Room</h3>
+              <p>Thats is a way to lazy people control your room with minimum of possible movements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-below">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              Copyright &copy; Your Website 2017
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top d-lg-none">
+      <a class="btn btn-primary js-scroll-trigger" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
+
+  </body>
+
+</html>
