@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Lidiaxp">
+
+     <?php header("Access-Control-Allow-Origin: *"); ?>
 
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta http-equiv="Access-Control-Allow-Methods" content="GET, POST, PATCH, PUT, DELETE, OPTIONS">
@@ -23,8 +25,6 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -34,6 +34,134 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 
     <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/celular");
+
+      xhr.onload = function(){
+        if(xhr.status === 200){
+          var data = $.parseJSON(xhr.responseText);
+          var element=document.getElementById('device');
+          if(data === "desligado"){
+            element.src="img/icons/device_F.png";
+          } else{
+            element.src="img/icons/device_A.png";
+          }
+        }
+      }
+      xhr.send();
+
+      var xhr1 = new XMLHttpRequest();
+      xhr1.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_tranca");
+
+      xhr1.onload = function(){
+        if(xhr1.status === 200){
+          var data1 = $.parseJSON(xhr1.responseText);
+          var element1=document.getElementById('porta');
+          if(data1 === "desligado"){
+            element1.src="img/icons/porta_F.png";
+          } else{
+            element1.src="img/icons/porta_A.png";
+          }
+        }
+      }
+      xhr1.send();
+
+      var xhr2 = new XMLHttpRequest();
+      xhr2.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/alarme");
+
+      xhr2.onload = function(){
+        if(xhr2.status === 200){
+          var data2 = $.parseJSON(xhr2.responseText);
+          var element2=document.getElementById('alarme');
+          if(data2 === "desligado"){
+            element2.src="img/icons/alarme_F.png";
+          } else{
+            element2.src="img/icons/alarme_A.png";
+          }
+        }
+      }
+      xhr2.send();
+
+      var xhr3 = new XMLHttpRequest();
+      xhr3.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_vent");
+
+      xhr3.onload = function(){
+        if(xhr3.status === 200){
+          var data3 = $.parseJSON(xhr3.responseText);
+          var element3=document.getElementById('ventilador');
+          if(data3 === "desligado"){
+            element3.src="img/icons/ventilador_F.png";
+          } else{
+            element3.src="img/icons/ventilador_A.png";
+          }
+        }
+      }
+      xhr3.send();
+
+      var xhr4 = new XMLHttpRequest();
+      xhr4.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_lamp1");
+
+      xhr4.onload = function(){
+        if(xhr4.status === 200){
+          var data4 = $.parseJSON(xhr4.responseText);
+          var element4=document.getElementById('luz1');
+          if(data4 === "desligado"){
+            element4.src="img/icons/luz1_F.png";
+          } else{
+            element4.src="img/icons/luz1_A.png";
+          }
+        }
+      }
+      xhr4.send();
+
+      var xhr5 = new XMLHttpRequest();
+      xhr5.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_lamp2");
+
+      xhr5.onload = function(){
+        if(xhr5.status === 200){
+          var data5 = $.parseJSON(xhr5.responseText);
+          var element5=document.getElementById('luz2');
+          if(data5 === "desligado"){
+            element5.src="img/icons/luz2_F.png";
+          } else{
+            element5.src="img/icons/luz2_A.png";
+          }
+        }
+      }
+      xhr5.send();
+
+      var xhr6 = new XMLHttpRequest();
+      xhr6.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_janela");
+
+      xhr6.onload = function(){
+        if(xhr6.status === 200){
+          var data6 = $.parseJSON(xhr6.responseText);
+          var element6=document.getElementById('janela');
+          if(data6 === "desligado"){
+            element6.src="img/icons/janela_F.png";
+          } else{
+            element6.src="img/icons/janela_A.png";
+          }
+        }
+      }
+      xhr6.send();
+
+      var xhr7 = new XMLHttpRequest();
+      xhr7.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/e_cortina");
+
+      xhr7.onload = function(){
+        if(xhr7.status === 200){
+          var data7 = $.parseJSON(xhr7.responseText);
+          var element7=document.getElementById('cortina');
+          if(data7 === "desligado"){
+            element7.src="img/icons/cortina_F.png";
+          } else{
+            element7.src="img/icons/cortina_A.png";
+          }
+        }
+      }
+      xhr7.send();
+
       function MudaDevice() {
         var estado = "";
         var xhr = new XMLHttpRequest();
