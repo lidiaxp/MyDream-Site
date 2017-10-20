@@ -34,6 +34,11 @@
     <link href="css/freelancer.min.css" rel="stylesheet">
 
     <script>
+      
+      window.onload = function(){
+      	setTimeout('location.reload()', 7000);
+      }
+      
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "https://mydream-ufpa-phi.herokuapp.com/sensor/celular");
 
